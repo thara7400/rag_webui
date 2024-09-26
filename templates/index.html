@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>RAG WebUI</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS読み込み -->
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>RAG WebUI</h1>
+            <!-- ファイルアップロード -->
+            <h2>ファイルアップロード</h2>
+            <form id="upload-form" action="/upload_file/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".txt">
+                <button type="button" id="upload-button">アップロード</button>
+            </form>
+            <hr>
+            <!-- チャットボット -->
+            <h2>チャットボット</h2>
+            <form id="chat-form" action="/chat/" method="post">
+                <h3>使用する参照情報を選択（複数可）</h3>
+                <div class="checkbox-container"></div>
+                <h3>質問</h3>
+                <input type="text" name="user_query" placeholder="質問を入力してください">
+                <!-- <textarea name="user_query" placeholder="質問を入力してください"></textarea> -->
+                <button type="button" id="chat-button">質問する</button>
+            </form>
+            <!-- レスポンス -->
+            <div class="response-box"></div>
+        </div>
+        <!-- JS読み込み -->
+        <script src="/static/scripts.js"></script>
+    </body>
+</html>
